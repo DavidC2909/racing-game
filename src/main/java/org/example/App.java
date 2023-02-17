@@ -56,6 +56,10 @@ public class App
 
         double distanceForCar2 = car2.accelerate(100, 1);
 
+        System.out.println("Engine name before repair: " + carReference.engine.manufacturer);
+        Mechanic mechanic= new Mechanic();
+        mechanic.repair(carReference);
+        System.out.println("Engine manufacturer after repair: " + carReference.engine.manufacturer);
 
 
 
