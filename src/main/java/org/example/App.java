@@ -5,7 +5,16 @@ public class App
 {
     public static void main( String[] args )
     {
-        Car carReference= new Car();
+        Engine autoVehicleEngine= new Engine();
+        autoVehicleEngine.manufacturer= "VW";
+
+        AutoVehicle autoVehicle= new AutoVehicle(autoVehicleEngine);
+
+        Engine engine1= new Engine();
+        engine1.manufacturer= "Ferrari";
+        engine1.capacity= 300;
+
+        Car carReference= new Car(engine1);
         carReference.name= "Ferrari";
         carReference.maxSpeed= 300;
         carReference.fuelLevel= 60;
@@ -15,11 +24,7 @@ public class App
         carReference.doorCount= 2;
         carReference.color= "Red";
 
-        Engine engine1= new Engine();
-        engine1.manufacturer= "Ferrari";
-        engine1.capacity= 300;
 
-        carReference.engine= engine1;
         System.out.println("Engine1 capacity: " + engine1.capacity);
         System.out.println("Car engine capacity: " + carReference.engine.capacity);
 
@@ -35,14 +40,14 @@ public class App
         System.out.println("Door Count: " + carReference.doorCount);
         System.out.println("Color: " + carReference.color);
         
-        Car car2= new Car();
+        Car car2= new Car(new Engine());
         car2.name= "Ford";
         car2.fuelLevel= 70;
         car2.maxSpeed= 300;
         car2.mileage= 10;
         car2.totalTraveledDistance= 100;
 
-        car2.engine= new Engine();
+
         car2.engine.capacity= 200;
 
         System.out.println("Properties of car:" + car2.name);
@@ -54,7 +59,7 @@ public class App
         System.out.println("Door Count: " + car2.doorCount);
         System.out.println("Color: " + car2.color);
 
-        System.out.println("***********");
+        System.out.println("*************************");
         double distanceForCar1= carReference.accelerate(60, 1);
 
         double distanceForCar2 = car2.accelerate(130, 1);
