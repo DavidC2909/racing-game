@@ -2,6 +2,10 @@ package org.example;
 
 public class Vehicle {
 
+    // class variable (static variable)
+    static int totalVehicleCount;
+
+    // instance variables
     String name;
     double fuelLevel;
     double mileage;
@@ -11,6 +15,9 @@ public class Vehicle {
     boolean damaged;
     String color;
 
+    public Vehicle() {
+        totalVehicleCount++;
+    }
 
     public double accelerate(double speed, double durationInHours) {
         if (fuelLevel <= 0 || damaged) {
@@ -34,6 +41,7 @@ public class Vehicle {
         System.out.println(name + " is accelerating with " + speed + "km/h for " + durationInHours + "h");
 
 
+       // local variable
         double distance= speed * durationInHours;
 
         totalTraveledDistance= totalTraveledDistance + distance;
